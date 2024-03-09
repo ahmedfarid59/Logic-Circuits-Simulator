@@ -3,12 +3,14 @@ class input:
 		self.name=name
 		self.state=state
 
-class gate:
+class component:
 	def __init__(self,name,noi,expression,delay):
 		self.name=name
 		self.noi=noi
 		self.expression=expression
 		self.delay=delay
+	def run(self,*args):
+		pass
         
 
 
