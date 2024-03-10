@@ -1,10 +1,7 @@
-from component import *
+from circuit import *
 
-file=open("lib.lib","r")
-inputs=components=[]
+sim=open("stim.stim","r")
 
-for l in file:
-	lst=l.strip().split(",")
-	components.append(component(lst[0],int(lst[1]),lst[2],int(lst[3])))
+for line in sim:
+	lst=line.strip().split(",")
 	print(lst)
-
