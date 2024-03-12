@@ -1,14 +1,14 @@
 import re
 
-AND=re.compile("AND\d",re.IGNORECASE)
-OR=re.compile("or\d",re.IGNORECASE)
+AND=re.compile("AND\d*",re.IGNORECASE)
+OR=re.compile("or\d*",re.IGNORECASE)
 NOT=re.compile("NOT",re.IGNORECASE)
-XOR=re.compile("XOR\d",re.IGNORECASE)
-NAND= re.compile("NAND\d")
-NOR=re.compile("NOR\d",re.IGNORECASE)
-XNOR=re.compile("XNOR\d",re.IGNORECASE)
+XOR=re.compile("XOR\d*",re.IGNORECASE)
+NAND= re.compile("NAND\d*")
+NOR=re.compile("NOR\d*",re.IGNORECASE)
+XNOR=re.compile("XNOR\d*",re.IGNORECASE)
 
-def evaluate(args,name):
+def evaluate(name,args):
 	if re.fullmatch(AND,name) :
 		return all(args)
 	elif re.fullmatch(NAND,name):

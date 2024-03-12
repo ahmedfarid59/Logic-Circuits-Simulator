@@ -6,8 +6,15 @@ class variable:
 	def update(self,value):
 		if value != self.state:
 			self.state=value
-			print(self.name,self.state)
+			time=0
 			for i in self.gates:
-				i.refresh() 
+				time+=i.refresh() 
+				return time
 	def __str__(self):
 		return self.name+"|"+str(self.state)
+
+variables={}
+variables["A"]=variable("A",0)
+variables["B"]=variable("B",0)
+variables["C"]=variable("C",0)
+

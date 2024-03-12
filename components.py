@@ -5,12 +5,15 @@ class component:
 		self.noi=noi
 		self.expression=expression
 		self.delay=delay
-	def run(self,*args):
-		return evaluate(args,self.name)
+	def run(self,args):
+		return evaluate(self.name,args)
+	def __str__(self):
+		return self.name
+
 def getComponents(path):
-	lib=open(path,"r")
 	components={}
-	for line in lib:
-		lst=line.strip().split(",")
-		components[lst[0]]=component(lst[0],int(lst[1]),lst[2],int(lst[3]))
+	with open(path,"r") as lib:
+		for line in lib:
+			lst=line.strip().replace(" ","").split(",")
+			components[lst[0]]=component(lst[0],int(lst[1]),lst[2],int(lst[3]))
 	return components

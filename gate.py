@@ -5,5 +5,5 @@ class gate:
 		self.outVar=outVar
 		self.inputs=args
 	def refresh(self):
-		print(self.name)
-		self.outVar.update(self.component.run(self.inputs))
+		time=self.outVar.update(self.component.run(self.inputs))
+		return self.component.delay + time
