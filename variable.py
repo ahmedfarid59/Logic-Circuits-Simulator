@@ -6,10 +6,14 @@ class variable:
 	def update(self,value):
 		if value != self.state:
 			self.state=value
-			time=0
+			print(self.name," will change to",value)
+			print(self.name,"notifying the involved gates")
 			for i in self.gates:
-				time+=i.refresh() 
-				return time
+				print(i)
+				i.refresh() 
+		else:
+			print(self.name, "did not change")
+			
 	def __str__(self):
 		return self.name+"|"+str(self.state)
 
