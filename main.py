@@ -22,5 +22,5 @@ print("starting updates")
 with open("stim.stim","r" ) as stim:
 	with open("output.sim","w") as sim:
 		for line in stim:
-			lst=line.strip().replace(" ","").split(",")
+		lst=line.strip().replace(" ","").split(",")
 			variables[lst[1]].update(int(lst[2]))
