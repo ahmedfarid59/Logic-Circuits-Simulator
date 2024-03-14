@@ -7,15 +7,13 @@ class variable:
 		if value != self.state:
 			self.state=value
 			print(self.name," will change to",value)
+			time = 0
 			for i in self.gates:
-				i.refresh() 
+				time+=i.refresh() 
+			return time
 		else:
 			print(self.name, "did not change")
+			return 0
 	def __str__(self):
 		return self.name+"|"+str(self.state)
-
-variables={}
-variables["A"]=variable("A",0)
-variables["B"]=variable("B",0)
-variables["C"]=variable("C",0)
 
