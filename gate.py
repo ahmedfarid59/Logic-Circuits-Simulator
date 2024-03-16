@@ -1,5 +1,5 @@
-from components import component , getComponents
-from  variable import variable
+from components import  getComponents
+from  variable import variable ,out 
 
 components=getComponents("lib.lib")
 
@@ -12,8 +12,7 @@ class gate:
 	def refresh(self):
 		bits =[x.state for x in self.inputs]
 		print(self.name,self.component,"updating the variable", self.outVar ,"by",bits)
-		time=self.outVar.update(self.component.run([ x for x in bits]))
-		return time +self.component.delay
+		self.outVar.update(self.component.run([ x for x in bits]),self.component.delay)
 	def __str__(self):
 		return self.name + "|"+self.component.name
 

@@ -23,4 +23,3 @@ def evaluate(name,args):
 		return sum(args)%2 == 0
 	elif re.fullmatch(NOT,name):
 		return not args[0]
-
