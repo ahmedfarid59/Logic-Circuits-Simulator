@@ -1,5 +1,4 @@
 out=open("output.sim","w")
-
 delay=0
 
 class variable:
