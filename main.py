@@ -1,4 +1,4 @@
-from gate import  getVars
+from modules.gate import  getVars
 import sys
 
 variables=getVars("circuits.cir")

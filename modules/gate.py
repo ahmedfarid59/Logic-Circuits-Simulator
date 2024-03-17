@@ -1,5 +1,5 @@
-from components import  getComponents
-from  variable import variable 
+from .components import  getComponents
+from  .variable import variable 
 
 components=getComponents("lib.lib")
 
