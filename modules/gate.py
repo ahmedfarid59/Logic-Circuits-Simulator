@@ -1,24 +1,35 @@
 import re
 from .components import  getComponents
 from  .variable import variable 
-
+#getting the dictionary of components
 components=getComponents("modules\\library.lib")
 
 class gate:
+	"""
+	the gate class which holds the inputs and output variables
+	it holds also the respective component
+	"""
 	def __init__(self,name,comp,outVar, *args):
 		self.name=name
 		self.component=comp
 		self.outVar=outVar
 		self.inputs=args
 	def refresh(self):
+		"""
+		function to run the gate to update the output  wire  or variable
+		"""
 		bits =[x.state for x in self.inputs]
 		print(self.name,self.component,"updating the variable", self.outVar ,"by",bits)
 		self.outVar.update(self.component.run([ x for x in bits]),self.component.delay)
 	def __str__(self):
 		return self.name + "|"+self.component.name
 
-
 def getVars(circuits):
+	"""
+	the function that takes the circuit file and construct the variables objects
+	returns a dictionary with the variables and wires to be used 
+	it also populates every gate with its inputs and output variables and wires
+	"""
 	variables={}
 	with open(circuits,"r") as cir:
 		for line in cir:
