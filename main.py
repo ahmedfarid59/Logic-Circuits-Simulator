@@ -1,9 +1,7 @@
-from modules.gate import  getVars
+from gate import  getVars
 import sys
 
-variables=getVars("circuits.cir")
-
-
+variables=getVars("circuit1.cir")
 
 print("starting updates")
 

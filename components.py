@@ -1,4 +1,5 @@
-from .utilities import evaluate
+from utilities import evaluate
+
 class component:
 	def __init__(self,name,noi,expression,delay):
 		self.name=name

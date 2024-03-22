@@ -1,7 +1,7 @@
-from .components import  getComponents
-from  .variable import variable 
+from components import  getComponents
+from  variable import variable 
 
-components=getComponents("lib.lib")
+components=getComponents("library.lib")
 
 class gate:
 	def __init__(self,name,comp,outVar, *args):
