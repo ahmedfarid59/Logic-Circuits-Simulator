@@ -1,7 +1,8 @@
-from components import  getComponents
-from  variable import variable 
+import re
+from .components import  getComponents
+from  .variable import variable 
 
-components=getComponents("library.lib")
+components=getComponents("modules\\library.lib")
 
 class gate:
 	def __init__(self,name,comp,outVar, *args):
@@ -21,7 +22,7 @@ def getVars(circuits):
 	variables={}
 	with open(circuits,"r") as cir:
 		for line in cir:
-			lst=line.strip().replace(" ","").split(",")
+			lst=line.strip().replace(" ","").upper().split(",")
 			if len(lst) == 1 :
 				if len(lst[0])==1:
 					variables[lst[0]]=variable(lst[0],0)
@@ -29,7 +30,8 @@ def getVars(circuits):
 				vn=lst[2]
 				if vn not in variables:
 					variables[vn]=variable(vn,0)
-				g=gate(lst[0],components[lst[1]],variables[vn],*[variables[x] for x in lst[3:]])
+				com=components[re.sub("\d","",lst[1])]
+				g=gate(lst[0],com,variables[vn],*[variables[x] for x in lst[3:]])
 				g.refresh()
 				for v in lst[3:]:
 					variables[v].gates.append(g)

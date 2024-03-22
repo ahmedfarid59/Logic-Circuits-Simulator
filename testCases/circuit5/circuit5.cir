@@ -1,0 +1,13 @@
+INPUTS:
+A
+ b 
+c 
+d 
+COMPONENTS:  
+g 0,n ot,w1,A 
+g1,not,w2,B
+g2,not,w3,C
+g3,not,w4,d
+g4,and4,w5,w1,w2,w3,w4
+g5,and4,w6,a,b,c,d
+g6,or2,y,w5,w6
