@@ -18,6 +18,7 @@ class component:
 	def __str__(self):
 		return self.name
 
+
 def getComponents(path):
 	"""
 	a function for reading the library file and construct the object from the component class

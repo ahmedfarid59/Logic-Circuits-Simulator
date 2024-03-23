@@ -1,8 +1,12 @@
 import re
 from .components import  getComponents
 from  .variable import variable 
+from sys import argv
+
+if len(argv) ==4:
+	lib=argv[1]
 #getting the dictionary of components
-components=getComponents("modules\\library.lib")
+components=getComponents(lib)
 
 class gate:
 	"""
@@ -17,7 +21,6 @@ class gate:
 	def refresh(self):
 		"""function to run the gate to update the output  wire  or variable"""
 		bits =[x.state for x in self.inputs]
-		print(self.name,self.component,"updating the variable", self.outVar ,"by",bits)
 		self.outVar.update(self.component.run([ x for x in bits]),0,self.component.delay)
 	def __str__(self):
 		return self.name + "|"+self.component.name
