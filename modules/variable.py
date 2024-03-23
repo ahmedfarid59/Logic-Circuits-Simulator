@@ -2,6 +2,7 @@
 out=open("output.sim","w")
 delay=0
 
+
 class variable:
 	"""the variable class that holds the variable or wire name and current state """
 	def __init__(self,name,state):
@@ -9,12 +10,20 @@ class variable:
 		self.state=state
 		#the gates for which the instance variable or wire is an input to refresh them in case of any updates
 		self.gates=[]
-	def update(self,value,d):
+		#lists to hold the coordinates of the curve that will graph the variable state
+	x=[0]
+	y=[0]
+	def update(self,value,t , d):
 		"""the function that updates the variable and log the delay and timestam of the change """
 		global delay#the integer variable that keeps track of the timestam
 		if value != self.state:#to update and log only in case of different state
+			delay+=t
+			self.x.append(delay/50)
+			self.y.append(int(self.state))
 			self.state=value
 			delay+=d#updating the delay variable
+			self.x.append(delay/50)
+			self.y.append(int(self.state))
 			print(self.name," will change to",value)
 			out.write(str(delay)+","+self.name+","+str(int(self.state))+"\n")
 			#refreshing the respective gates
