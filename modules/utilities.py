@@ -7,6 +7,7 @@ XOR=re.compile("XOR\d*",re.IGNORECASE)
 NAND= re.compile("NAND\d*")
 NOR=re.compile("NOR\d*",re.IGNORECASE)
 XNOR=re.compile("XNOR\d*",re.IGNORECASE)
+MAJ=re.compile("MAJ\d*", re.IGNORECASE) 
 
 def evaluate(name,args):
 	if re.fullmatch(AND,name) :
@@ -23,3 +24,5 @@ def evaluate(name,args):
 		return sum(args)%2 == 0
 	elif re.fullmatch(NOT,name):
 		return not args[0]
+	elif re.fullmatch(MAJ,name):
+		return sum(args) >= 2

@@ -25,6 +25,7 @@ class variable:
 			self.x.append(delay/50)
 			self.y.append(int(self.state))
 			out.write(str(delay)+","+self.name+","+str(int(self.state))+"\n")
+			#print(str(delay)+","+self.name+","+str(int(self.state))+"\n") I commented this line to avoid printing the output to the console as I only used it for testing :)
 			#refreshing the respective gates
 			for i in self.gates:
 				i.refresh() 
