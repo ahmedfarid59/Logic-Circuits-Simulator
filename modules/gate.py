@@ -40,11 +40,10 @@ def getVars(circuits):
 					variables[lst[0]]=variable(lst[0],0)
 			else:
 				vn=lst[2]
-				if vn not in variables:
-					variables[vn]=variable(vn,0)
+				for v in lst[2:]:
+					variables[v]=variable(v,0) if v not in variables else variables[v]
 				com=components[re.sub("\d","",lst[1])]
 				g=gate(lst[0],com,variables[vn],*[variables[x] for x in lst[3:]])
 				g.refresh()
-				for v in lst[3:]:
-					variables[v].gates.append(g)
+				[variables[v].gates.append(g) for v in lst[3:]]
 	return variables
