@@ -1,1 +1,1 @@
-python main.py %1 %2 %3
+python main.py modules/library.lib testCases/circuit1/circuit1.cir modules/stim.stim
